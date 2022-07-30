@@ -4,8 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +30,7 @@ import org.springframework.validation.Errors;
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
-    Logger logger = LogManager.getLogger("RollingRandomAccessFileLogger");
+    private final static Logger log = LoggerFactory.getLogger(DesignTacoController.class);
     @ModelAttribute
 public void addIngredientsToModel(Model model) {
 	List<Ingredient> ingredients = Arrays.asList(
@@ -63,7 +65,7 @@ public void addIngredientsToModel(Model model) {
 
   @GetMapping
   public String showDesignForm() {
-        logger.info("start design");
+        log.info("start design");
     return "design";
   }
 
@@ -95,6 +97,7 @@ public void addIngredientsToModel(Model model) {
 
   private Iterable<Ingredient> filterByType(
       List<Ingredient> ingredients, Type type) {
+      log.info(""+ingredients);
     return ingredients
               .stream()
               .filter(x -> x.getType().equals(type))

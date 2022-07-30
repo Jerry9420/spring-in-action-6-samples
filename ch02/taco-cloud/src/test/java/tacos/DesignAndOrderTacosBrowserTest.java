@@ -12,15 +12,18 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import tacos.web.DesignTacoController;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class DesignAndOrderTacosBrowserTest {
-  
+  private final static Logger log = LoggerFactory.getLogger(DesignAndOrderTacosBrowserTest.class);
   private static HtmlUnitDriver browser;
   
   @LocalServerPort
@@ -43,6 +46,7 @@ public class DesignAndOrderTacosBrowserTest {
   
   @Test
   public void testDesignATacoPage_HappyPath() throws Exception {
+    log.info("start test!");
     browser.get(homePageUrl());
     clickDesignATaco();
     assertDesignPageElements();

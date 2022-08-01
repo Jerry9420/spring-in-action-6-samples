@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +30,7 @@ import org.springframework.validation.Errors;
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
-    private final static Logger log = LoggerFactory.getLogger(DesignTacoController.class);
+//    private final static Logger log = LoggerFactory.getLogger(DesignTacoController.class);
     @ModelAttribute
 public void addIngredientsToModel(Model model) {
 	List<Ingredient> ingredients = Arrays.asList(

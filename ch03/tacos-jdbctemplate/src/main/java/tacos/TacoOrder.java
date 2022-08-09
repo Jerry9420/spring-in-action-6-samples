@@ -21,7 +21,6 @@ public class TacoOrder implements Serializable {
 
   private Date placedAt;
 
-
   @NotBlank(message="Delivery name is required")
   private String deliveryName;
 
@@ -41,7 +40,8 @@ public class TacoOrder implements Serializable {
   private String ccNumber;
 
   @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$",
-           message="Must be formatted MM/YY")
+           message="Must be formatted MM/YY and ccExpiration is also required")
+//  @Pattern注释其实是设置了@NotBlank的，所以不能为空
   private String ccExpiration;
 
   @Digits(integer=3, fraction=0, message="Invalid CVV")

@@ -54,6 +54,11 @@ public class DesignAndOrderTacosBrowserTest {
   }
 
   @Test
+  public void testSout(){
+    System.out.println("welcome to tacos!");
+  }
+
+  @Test
   public void testDesignATacoPage_EmptyOrderInfo() throws Exception {
     browser.get(homePageUrl());
     clickDesignATaco();

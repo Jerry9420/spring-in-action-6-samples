@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.asm.Type;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -14,7 +13,6 @@ import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import tacos.IngredientRef;
 import tacos.Taco;
 import tacos.TacoOrder;
@@ -68,7 +66,6 @@ public class JdbcOrderRepository implements OrderRepository {
     for (Taco taco : tacos) {
       saveTaco(orderId, i++, taco);
     }
-
     return order;
   }
 
